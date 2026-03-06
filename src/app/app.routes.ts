@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { AutenticarUsuario } from './pages/autenticar-usuario/autenticar-usuario';
 import { CadastrarUsuario } from './pages/cadastrar-usuario/cadastrar-usuario';
+import { Dashboard } from './pages/dashboard/dashboard';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -10,6 +12,11 @@ export const routes: Routes = [
     {
         path : "pages/cadastrar-usuario", //rota de navegação
         component: CadastrarUsuario //classe do componente
+    },
+    {
+        path : "pages/dashboard", //rota de navegação
+        component: Dashboard, //classe do componente
+        canActivate: [AuthGuard] //aplicando o guardião
     },
     {
         path: "", //rota de navegação para a página inicial
